@@ -2,67 +2,71 @@
 
 #include <iostream>
 
-uint8_t Student::getAge()
+uint8_t Student::Age()
 {
 	return this->age;
 }
 
-uint8_t Student::getHeight()
+uint8_t Student::Height()
 {
 	return this->height;
 }
 
-uint8_t Student::getWeight()
+uint8_t Student::Weight()
 {
 	return this->weight;
 }
 
-std::string Student::getLastName()
+std::string Student::LastName()
 {
 	return this->lastName;
 }
 
-std::string Student::getName()
+std::string Student::Name()
 {
 	return this->name;
 }
 
-std::string Student::getSurname()
+std::string Student::Surname()
 {
 	return this->surname;
 }
 
-void Student::setAge(uint8_t age)
+Student & Student::Age(uint8_t age)
 {
 	this->age = age;
+	return (*this);
 }
 
-void Student::setHeight(uint8_t height)
+Student & Student::Height(uint8_t height)
 {
 	this->height = height;
+	return (*this);
 }
 
-void Student::setWeight(uint8_t weight)
+Student & Student::Weight(uint8_t weight)
 {
 	this->weight = weight;
+	return (*this);
 }
 
-void Student::setLastName(std::string lastName)
+Student & Student::LastName(std::string lastName)
 {
 	this->lastName = lastName;
+	return (*this);
 }
 
-void Student::setName(std::string name)
+Student & Student::Name(std::string name)
 {
 	this->name = name;
+	return (*this);
 }
 
-void Student::setSurname(std::string surname)
+Student & Student::Surname(std::string surname)
 {
 	this->surname = surname;
+	return (*this);
 }
-
-
 
 Student::Student()
 {
@@ -74,7 +78,6 @@ Student::Student()
 	this->name = "Kolyan";
 	this->lastName = "Novikov";
 	this->surname = "Andreevich";
-
 }
 Student::~Student() {};
 

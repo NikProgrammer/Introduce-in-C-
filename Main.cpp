@@ -14,15 +14,15 @@ int main()
 		<< std::setw(12) << "Height"
 		<< std::setw(12) << "Weight"
 		<< std::endl
-		<< std::setw(10 * 6) << std::setfill('-') << "" << std::endl << std::setfill(' ');
+		<< std::setw(12 * 6) << std::setfill('-') << "" << std::endl << std::setfill(' ');
 	std::cout
 		<< std::setw(3)  << "1."
-		<< std::setw(12)  << student.getLastName()
-		<< std::setw(12) << student.getName()
-		<< std::setw(12) << student.getSurname()
-		<< std::setw(12) << (uint32_t)student.getAge()
-		<< std::setw(12) << (uint32_t)student.getHeight()
-		<< std::setw(12) << (uint32_t)student.getWeight()
+		<< std::setw(12)  << student.LastName()
+		<< std::setw(12) << student.Name()
+		<< std::setw(12) << student.Surname()
+		<< std::setw(12) << (uint32_t)student.Age()
+		<< std::setw(12) << (uint32_t)student.Height()
+		<< std::setw(12) << (uint32_t)student.Weight()
 		<< std::endl;
 
 	return 0;

@@ -9,23 +9,23 @@ public:
 	Student();
 	~Student();
 
-	std::string getName();
-	void setName(std::string name);
+	std::string Name();
+	Student &	Name(std::string name);
 
-	std::string getLastName();
-	void setLastName(std::string lastname);
+	std::string LastName();
+	Student &	LastName(std::string lastname);
 
-	std::string getSurname();
-	void setSurname(std::string surname);
+	std::string Surname();
+	Student &	Surname(std::string surname);
 
-	uint8_t getAge();
-	void setAge(uint8_t age);
+	uint8_t		Age();
+	Student &	Age(uint8_t age);
 
-	uint8_t getHeight();
-	void setHeight(uint8_t height);
+	uint8_t		Height();
+	Student &	Height(uint8_t height);
 
-	uint8_t getWeight();
-	void setWeight(uint8_t weight);
+	uint8_t		Weight();
+	Student &	Weight(uint8_t weight);
 
 
 

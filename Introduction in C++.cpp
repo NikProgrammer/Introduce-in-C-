@@ -1,83 +1,175 @@
+# pragma warning(disable:4996)
 #include <Introduction in C++.h>
 
 #include <iostream>
 
-uint8_t Student::Age()
+uint8_t Okhotnik::Age()
 {
 	return this->age;
 }
 
-uint8_t Student::Height()
+uint8_t Okhotnik::Height()
 {
 	return this->height;
 }
 
-uint8_t Student::Weight()
+uint8_t Okhotnik::Weight()
 {
 	return this->weight;
 }
 
-std::string Student::LastName()
+std::string Okhotnik::LastName()
 {
 	return this->lastName;
 }
 
-std::string Student::Name()
+std::string Okhotnik::Name()
 {
 	return this->name;
 }
 
-std::string Student::Surname()
+std::string Okhotnik::MiddleName()
 {
-	return this->surname;
+	return this->middleName;
 }
 
-Student & Student::Age(uint8_t age)
+Okhotnik & Okhotnik::Age(uint8_t age)
 {
-	this->age = age;
+	if ((age <= 0) || (age > 120))
+		return (*this);
+	this -> age = age;
 	return (*this);
 }
 
-Student & Student::Height(uint8_t height)
+Okhotnik & Okhotnik::Height(uint8_t height)
 {
+	if ((height <= 0) || (height > 255))
+		return (*this);
 	this->height = height;
 	return (*this);
 }
 
-Student & Student::Weight(uint8_t weight)
+Okhotnik & Okhotnik::Weight(uint8_t weight)
 {
+	if ((weight <= 0) || (weight > 255))
+		return (*this);
 	this->weight = weight;
 	return (*this);
 }
 
-Student & Student::LastName(std::string lastName)
-{
-	this->lastName = lastName;
+Okhotnik & Okhotnik::LastName(std::string lastName)
+{	/*если строка пустая*/
+	if (lastName.empty())
+		this->name = "lastName";
+		return(*this);
+	/* Проверка: все символы — буквы */
+	for (size_t i = 0; i < lastName.size(); i++)
+	{
+		if (!isalpha(lastName[i]))
+			this->name = "lastName";
+			return (*this);
+	}
+	/*выделение памяти по строковый массив размером name*/
+	char *tempstr = (char*)malloc(lastName.size()+1);
+	/*копирование строки во временный строковый массив. c_str - возвращает стандартный сишный массив символов*/
+	strcpy(tempstr, lastName.c_str());
+	/*переводим все символы в нижний регистр*/
+	strlwr(tempstr);
+	/*первый символ делаем заглавным*/
+	tempstr[0] = toupper(tempstr[0]);
+	this->lastName = std::string(tempstr);
+
+	free(tempstr);
+
 	return (*this);
 }
 
-Student & Student::Name(std::string name)
+Okhotnik & Okhotnik::Name(std::string name)
 {
-	this->name = name;
+	/*если строка пустая*/
+	if (name.empty())
+	{
+		this->name = "NONE";
+		return (*this);
+	}
+	/* Проверка: все символы — буквы */
+	for (size_t i = 0; i < name.size(); i++)
+	{
+		if (!isalpha(name[i]))
+		{
+			this->name = "NONE";
+			return(*this);
+		}
+	}
+	/*выделение памяти по строковый массив размером name*/
+	char *tempstr = (char*)malloc(name.size()+1);
+	/*копирование строки во временный строковый массив. c_str - возвращает стандартный сишный массив символов*/
+	strcpy(tempstr, name.c_str());
+	/*переводим все символы в нижний регистр*/
+	strlwr(tempstr);
+	/*первый символ делаем заглавным*/
+	tempstr[0] = toupper(tempstr[0]);
+	this->name = std::string(tempstr);
+
+	free(tempstr);
+
 	return (*this);
 }
 
-Student & Student::Surname(std::string surname)
+Okhotnik & Okhotnik::MiddleName(std::string middleName)
 {
-	this->surname = surname;
+	/*если строка пустая*/
+	if (middleName.empty())
+	{
+		this->middleName = "NONE";
+		return (*this);
+	}
+	/* Проверка: все символы — буквы */
+	for (size_t i = 0; i < middleName.size(); i++)
+	{
+		if (!isalpha(middleName[i]))
+		{
+			this->middleName = "NONE";
+			return(*this);
+		}
+	}
+	/*выделение памяти по строковый массив размером name*/
+	char *tempstr = (char*)malloc(middleName.size()+1);
+	/*копирование строки во временный строковый массив. c_str - возвращает стандартный сишный массив символов*/
+	strcpy(tempstr, middleName.c_str());
+	/*переводим все символы в нижний регистр*/
+	strlwr(tempstr);
+	/*первый символ делаем заглавным*/
+	tempstr[0] = toupper(tempstr[0]);
+	this->middleName = std::string(tempstr);
+
+	free(tempstr);
+
 	return (*this);
 }
 
-Student::Student()
+Okhotnik::Okhotnik()
 {
-	this->age = 28;
-	this->height = 174;
-	this->weight = 71;
-	this->age = 28;
+	this->age = 0;
+	this->height = 0;
+	this->weight = 0;
+	this->age = 0;
 
-	this->name = "Kolyan";
-	this->lastName = "Novikov";
-	this->surname = "Andreevich";
+	this->name = "NONE";
+	this->lastName = "NONE";
+	this->middleName = "NONE";
 }
-Student::~Student() {};
+
+//Okhotnik::Okhotnik (uint8_t Age, uint8_t Height, uint8_t Weight, const std::string & Name,
+//	const std::string & Lastname, const std::string & Surname)
+//{
+//	this->age = Age;
+//	this->height = Height;
+//	this->name = Name;
+//	this->lastName = Lastname;
+//	this->middleName = Surname;
+//	this->weight = Weight;
+//}
+
+Okhotnik::~Okhotnik() {};
 

@@ -151,9 +151,8 @@ Okhotnik & Okhotnik::MiddleName(std::string middleName)
 Okhotnik::Okhotnik()
 {
 	this->age = 42;
-	this->height = 42;
-	this->weight = 42;
-	this->age = 42;
+	this->height = 783;
+	this->weight = 79;
 
 	this->name = "Nu, vyp'em!";
 	this->lastName = "Nu, vyp'em!";

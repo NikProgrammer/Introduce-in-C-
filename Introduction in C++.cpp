@@ -60,13 +60,13 @@ Okhotnik & Okhotnik::Weight(uint8_t weight)
 Okhotnik & Okhotnik::LastName(std::string lastName)
 {	/*если строка пустая*/
 	if (lastName.empty())
-		this->name = "lastName";
+		this->lastName = "Nu, vyp'em!";
 		return(*this);
 	/* Проверка: все символы — буквы */
 	for (size_t i = 0; i < lastName.size(); i++)
 	{
 		if (!isalpha(lastName[i]))
-			this->name = "lastName";
+			this->lastName = "Nu, vyp'em!";
 			return (*this);
 	}
 	/*выделение памяти по строковый массив размером name*/
@@ -89,7 +89,7 @@ Okhotnik & Okhotnik::Name(std::string name)
 	/*если строка пустая*/
 	if (name.empty())
 	{
-		this->name = "NONE";
+		this->name = "Nu, vyp'em!";
 		return (*this);
 	}
 	/* Проверка: все символы — буквы */
@@ -97,7 +97,7 @@ Okhotnik & Okhotnik::Name(std::string name)
 	{
 		if (!isalpha(name[i]))
 		{
-			this->name = "NONE";
+			this->name = "Nu, vyp'em!";
 			return(*this);
 		}
 	}
@@ -121,7 +121,7 @@ Okhotnik & Okhotnik::MiddleName(std::string middleName)
 	/*если строка пустая*/
 	if (middleName.empty())
 	{
-		this->middleName = "NONE";
+		this->middleName = "Nu, vyp'em!";
 		return (*this);
 	}
 	/* Проверка: все символы — буквы */
@@ -129,7 +129,7 @@ Okhotnik & Okhotnik::MiddleName(std::string middleName)
 	{
 		if (!isalpha(middleName[i]))
 		{
-			this->middleName = "NONE";
+			this->middleName = "Nu, vyp'em!";
 			return(*this);
 		}
 	}
@@ -150,14 +150,14 @@ Okhotnik & Okhotnik::MiddleName(std::string middleName)
 
 Okhotnik::Okhotnik()
 {
-	this->age = 0;
-	this->height = 0;
-	this->weight = 0;
-	this->age = 0;
+	this->age = 42;
+	this->height = 42;
+	this->weight = 42;
+	this->age = 42;
 
-	this->name = "NONE";
-	this->lastName = "NONE";
-	this->middleName = "NONE";
+	this->name = "Nu, vyp'em!";
+	this->lastName = "Nu, vyp'em!";
+	this->middleName = "Nu, vyp'em!";
 }
 
 //Okhotnik::Okhotnik (uint8_t Age, uint8_t Height, uint8_t Weight, const std::string & Name,
